@@ -6,7 +6,7 @@ SELECT
 	users.username,
 	COUNT(*) AS num_likes
 FROM photos
-	LEFT JOIN likes
+	JOIN likes -- Left join is not necessary because there we are not looking for photos without likes
 		ON photos.id = likes.photo_id
 	JOIN users 
 		ON photos.user_id = users.id
