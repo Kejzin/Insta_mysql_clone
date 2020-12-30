@@ -1,8 +1,10 @@
 /* 3. We want ot target our inactive users with an email campaign. Find the users who have never posted a photo */
 
 SELECT 
-	username 
+	username,
+	COUNT(photos.id) AS num_user_photos
 FROM users
 	LEFT JOIN photos 
-		ON photos.user_id = users.id
+		ON users.id = photos.user_id
+WHERE photos.user_id IS NULL
 GROUP BY users.id;
