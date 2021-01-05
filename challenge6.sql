@@ -1,3 +1,4 @@
+-- 6. Find the most popular hashtags
 SELECT 
 	tag_name,
 	tag_id,
