@@ -1,4 +1,5 @@
 SELECT 
+	tag_name,
 	tag_id,
 	COUNT(*) AS times_used
 FROM photo_tags 
