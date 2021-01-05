@@ -1,10 +1,11 @@
 -- 7. Find a bot! users who have liked every single photo
 SELECT 
-	likes.user_id,
+	username,
 	COUNT(*) AS likes
-FROM photos 
+FROM users 
 	LEFT JOIN likes 
-	ON likes.photo_id = photos.id
+	ON likes.user_id = users.id
 -- WHERE likes=(SELECT COUNT(*) FROM photos)
-GROUP BY user_id;
--- ORDER BY likes DESC;
+GROUP BY user_id
+HAVING likes = (SELECT COUNT(*) FROM photos);
+-- HAVING WORKS while WHERE don't because WHERE works before group by
